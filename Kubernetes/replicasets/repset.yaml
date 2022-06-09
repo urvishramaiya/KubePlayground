@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: manager
+  labels:
+    where: abovenode
+spec:
+  selector:
+    matchLabels:
+      where: node
+  replicas: 2
+  template:
+    metadata:
+      name: alpine
+      labels:
+        where: node
+    spec:
+      containers:
+        - name: busybox
+          image: busybox:unstable-glibc
+          stdin: true
+          tty: true

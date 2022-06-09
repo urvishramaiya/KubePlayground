@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox
+  labels:
+    where: node
+spec:
+  containers:
+    - name: busybox
+      image: busybox:unstable-glibc
+      stdin: true
+      tty: true
